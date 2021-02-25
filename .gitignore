@@ -6,3 +6,6 @@ crash.log
 
 # For built boxes
 *.box
+## .gitignore for mac os x
+maven-wrapper.jar
+.DS_Store
