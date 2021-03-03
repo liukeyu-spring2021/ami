@@ -39,7 +39,13 @@
             ],
             "inline": [
                 "sudo apt-get update",
-                "sudo apt-get update&&sudo apt install -y openjdk-8-jdk openjdk-8-jre"
+                "sudo apt-get update&&sudo apt install -y openjdk-8-jdk openjdk-8-jre",
+                "sudo apt-get -y install ruby",
+                "sudo apt-get -y install wget",
+                "cd /home/ubuntu",
+                "wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install",
+                "chmod +x ./install",
+                "sudo ./install auto"
             ]
         }
     ]
