@@ -10,4 +10,4 @@ packer validate ami.json
 ```sh
 packer build
 ```
-
+ 
