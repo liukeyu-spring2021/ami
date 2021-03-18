@@ -1,14 +1,19 @@
 name: Validate packer template file in a directory
-env:
-  TEMPLATE_FILE_NAME: ami.json
 on:
   pull_request:
 jobs:
   packer_validate:
-    runs-on: hashicorp/packer:1.6.4
+    runs-on: ubuntu-latest
+    name: packer
+
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
       - name: Packer validate template-y without argument
-        uses: dawitnida/packer-github-actions/validate@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TEMPLATE_FILE_NAME: ${{ env.TEMPLATE_FILE_NAME }}
+        uses: hashicorp/packer-github-actions@master
+        with:
+          command: validate
+          arguments: -syntax-only
+          target: ami.json
+
