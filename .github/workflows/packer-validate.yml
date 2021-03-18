@@ -1,5 +1,7 @@
 name: Validate packer template file in a directory
-
+env:
+  GITHUB_TOKEN: ${{ github.sha }}
+  TEMPLATE_FILE_NAME: ami.json
 on:
   pull_request:
 jobs:
@@ -9,5 +11,5 @@ jobs:
       - name: Packer validate template-y without argument
         uses: dawitnida/packer-github-actions/validate@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
           TEMPLATE_FILE_NAME: ${{ env.TEMPLATE_FILE_NAME }}
