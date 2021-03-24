@@ -11,4 +11,5 @@ packer validate ami.json
 packer build
 
 ```
+0000
   
